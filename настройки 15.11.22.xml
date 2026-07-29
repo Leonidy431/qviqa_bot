@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrowserAutomationStudioProject>
+     <Script><![CDATA[]]></Script>
+     <ModuleInfo><![CDATA[]]></ModuleInfo>
+     <Modules/>
+     <EmbeddedData><![CDATA[]]></EmbeddedData>
+     <DatabaseId></DatabaseId>
+     <Schema></Schema>
+     <ConnectionIsRemote>false</ConnectionIsRemote>
+     <ConnectionServer></ConnectionServer>
+     <ConnectionPort></ConnectionPort>
+     <ConnectionLogin></ConnectionLogin>
+     <ConnectionPassword></ConnectionPassword>
+     <ScriptName></ScriptName>
+     <ProtectionStrength>4</ProtectionStrength>
+     <UnusedModules></UnusedModules>
+     <ScriptIcon></ScriptIcon>
+     <IsCustomIcon>false</IsCustomIcon>
+     <HideBrowsers>false</HideBrowsers>
+     <IntegrateScheduler>false</IntegrateScheduler>
+     <SingleInstance>false</SingleInstance>
+     <CopySilent>false</CopySilent>
+     <IsEnginesInAppData>false</IsEnginesInAppData>
+     <CompileType>NoProtection</CompileType>
+     <ScriptVersion></ScriptVersion>
+     <AvailableLanguages></AvailableLanguages>
+     <OutputTitle1/>
+     <OutputTitle2/>
+     <OutputTitle3/>
+     <OutputTitle4/>
+     <OutputTitle5/>
+     <OutputTitle6/>
+     <OutputTitle7/>
+     <OutputTitle8/>
+     <OutputTitle9/>
+     <OutputVisible1>0</OutputVisible1>
+     <OutputVisible2>0</OutputVisible2>
+     <OutputVisible3>0</OutputVisible3>
+     <OutputVisible4>0</OutputVisible4>
+     <OutputVisible5>0</OutputVisible5>
+     <OutputVisible6>0</OutputVisible6>
+     <OutputVisible7>0</OutputVisible7>
+     <OutputVisible8>0</OutputVisible8>
+     <OutputVisible9>110</OutputVisible9>
+     <ModelList>
+          <Model>
+               <Name>bot_token</Name>
+               <Description ru="Token бота telegram" en="bot token"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>1380941488:AAHUo3qIof5fFbmooJKxkwLbiD4M5PsJlkk</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>use_webhook</Name>
+               <Description ru="Использовать webhook" en="use_webhook"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>да
+нет</Values>
+               <Selected>1</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>token_webhook</Name>
+               <Description ru="Токен webhook.site" en="token_webhook"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue>да</VisibilityConditionValue>
+               <VisibilityConditionVariable>use_webhook</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>36afd235-efcb-4e55-8fe0-8ce360c70aee</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>new_users_notification</Name>
+               <Description ru="Включить админ панель" en="new_users_notification"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Да
+Нет</Values>
+               <Selected>0</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>admin_id</Name>
+               <Description ru="ID администратора бота" en="admin_id"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>new_users_notification</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>100995091</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>support</Name>
+               <Description ru="Адрес техподдержки" en="support"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>@Leonidy</Value>
+               <NotEmpty>0</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_checkbox</Name>
+               <Description ru="Использовать прокси для telegram" en="proxy"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Да
+Нет</Values>
+               <Selected>1</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy</Name>
+               <Description ru="Proxy socks5 (ip:port или ip:port:login:pass)" en="proxy"/>
+               <SectionName ru="Настройки telegram" en="Notifications telegram"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>proxy_checkbox</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>85.143.202.209:37160:leonidy431:waPVoSAfKMv8SyA</Value>
+               <NotEmpty>0</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>qiwi_secret_key</Name>
+               <Description ru="Секретный ключ QIWI" en="qiwi_secret_key"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6ImpkM2U4ay0wMCIsInVzZXJfaWQiOiI3OTE2MjE1NDYxOSIsInNlY3JldCI6IjJkMWE1MzExMjA1ZWFkNDAxZTdhNzc3NTUwOTk1MTkzMDcxNTMyZjM0NzI0MjE2N2U1NTAxMTQ2ZmI2ODNlYmIifX0=</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>subscription_price</Name>
+               <Description ru="Стоимость подписки" en="subscription_price"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>250</Value>
+               <MinValue>-99999999</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>test_period</Name>
+               <Description ru="Тестовый период (дни)" en="test_period"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>7</Value>
+               <MinValue>-99999999</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>expire</Name>
+               <Description ru="Срок действия счета (сек.)" en="expire"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>1200</Value>
+               <MinValue>-99999999</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>check_transaction</Name>
+               <Description ru="Интервал проверки транзакций (сек.) " en="check_transaction"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>60</Value>
+               <MinValue>-99999999</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_pay_use</Name>
+               <Description ru="Использовать прокси" en="proxy_pay_use"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Да
+Нет</Values>
+               <Selected>1</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_pay</Name>
+               <Description ru="Прокси (ip:port:login:pass)" en="proxy_pay"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>proxy_pay_use</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value></Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_pay_type</Name>
+               <Description ru="Тип прокси" en="proxy_pay_type"/>
+               <SectionName ru="Настройка платежей" en="payment acceptance"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>proxy_pay_use</VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>http
+socks5</Values>
+               <Selected>0</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>checked_links</Name>
+               <Description ru="Список проверенных ссылок" en="Checked links"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>LinesFromFile</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>LinesFromFile</AllowedTypes>
+               <Filename>D:/server/checked links.txt</Filename>
+               <Clean>1</Clean>
+               <Read>1</Read>
+               <Mix>0</Mix>
+               <MaxSuccess>999999999</MaxSuccess>
+               <MaxFail>999999999</MaxFail>
+               <MaxSimultaneous>1</MaxSimultaneous>
+               <Interval>5000</Interval>
+               <ReloadInterval>1000</ReloadInterval>
+               <RenewInterval>1000</RenewInterval>
+               <Greedy>0</Greedy>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>interval</Name>
+               <Description ru="Интервал между проверками (сек.)" en="The interval between scans (in seconds)"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>0</Value>
+               <MinValue>-99999999</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>use_proxy_for_app</Name>
+               <Description ru="Использовать прокси для запросов" en="use_proxy_for_app"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Да
+Нет</Values>
+               <Selected>0</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_for_app</Name>
+               <Description ru="Прокси для запросов (ip:port или ip:port:login:pass)" en="proxy_for_app"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>use_proxy_for_app</VisibilityConditionVariable>
+               <Type>LinesFromFile</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>LinesFromFile</AllowedTypes>
+               <Filename>D:/server/прокси.txt</Filename>
+               <Clean>0</Clean>
+               <Read>1</Read>
+               <Mix>0</Mix>
+               <MaxSuccess>999999999</MaxSuccess>
+               <MaxFail>999999999</MaxFail>
+               <MaxSimultaneous>1</MaxSimultaneous>
+               <Interval>2000</Interval>
+               <ReloadInterval>0</ReloadInterval>
+               <RenewInterval>-1</RenewInterval>
+               <Greedy>0</Greedy>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_type</Name>
+               <Description ru="Тип прокси" en="proxy_type"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>use_proxy_for_app</VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>http
+socks5</Values>
+               <Selected>1</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>backup</Name>
+               <Description ru="Backup базы" en="backup"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Да
+Нет</Values>
+               <Selected>1</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>backup_path</Name>
+               <Description ru="Путь для сохранения файлов" en="backup_path"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>backup</VisibilityConditionVariable>
+               <Type>FilesFromDirectory</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FilesFromDirectory</AllowedTypes>
+               <FilesFromDirectory>C:/Users/Администратор/Desktop/baza</FilesFromDirectory>
+               <Wildcard>*.*</Wildcard>
+               <Clean>0</Clean>
+               <Mix>0</Mix>
+               <MaxSuccess>100000</MaxSuccess>
+               <MaxFail>100000</MaxFail>
+               <MaxSimultaneous>1</MaxSimultaneous>
+               <Interval>5000</Interval>
+               <ReloadInterval>0</ReloadInterval>
+               <RenewInterval>-1</RenewInterval>
+               <Greedy>0</Greedy>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>backup_int</Name>
+               <Description ru="Интервал сохранения (мин.)" en="backup_int"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>backup</VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>10</Value>
+               <MinValue>-99999999</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>google_app_script</Name>
+               <Description ru="Запись проектов через Apps Script" en="google_app_script"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Да
+Нет</Values>
+               <Selected>0</Selected>
+               <SelectType>0</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>web_app_url</Name>
+               <Description ru="Ссылка web приложения" en="Current web app URL"/>
+               <SectionName ru="Основные настройки" en="Settings"/>
+               <VisibilityConditionValue>Да</VisibilityConditionValue>
+               <VisibilityConditionVariable>google_app_script</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>https://script.google.com/macros/s/AKfycbw79EudLMlQBmbEsUqKzheHS72i_3Jlp2hJXsn3cVyaife-hfA/exec
+</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>Sites</Name>
+               <Description ru="Сайты" en="Sites"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>FL.ru
+freelancehunt.com
+freelance.ru
+freelansim.ru
+freelancejob.ru
+fl-ru.com
+weblancer.net
+youdo.com
+kwork.ru
+freten.ru
+kadrof.ru
+1clancer.ru
+freelancer.com
+superlance.pro
+vk.com
+telemetr.me
+tgstat.ru
+telegram.org</Values>
+               <Selected>0,1,2,3,4,6,7,8,9,10,11,12,13,14,17</Selected>
+               <SelectType>2</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>freelancehunt_token</Name>
+               <Description ru="Токен freelacehunt" en="freelancehunt_token"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>freelancehunt.com</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>4d377d14c423d7a89d65f4f5a91f7eadbd7cbc86</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>login_superlance</Name>
+               <Description ru="Логин superlance" en="login_superlance"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>superlance.pro</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>lab767@gmail.com</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>pass_superlance</Name>
+               <Description ru="Пароль superlance" en="pass_superlance"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>superlance.pro</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>Ngo95543787</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>comunities</Name>
+               <Description ru="Cсылки сообществ vk (через запятую) " en="comunities"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>vk.com</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>https://vk.com/freelancegator_bot,https://vk.com/freelance_all,https://vk.com/distantsiya,https://vk.com/yanovsfera,https://vk.com/frilansfree,https://vk.com/kadrof,https://vk.com/garantfreelance,https://vk.com/verify,https://vk.com/free_freelance,https://vk.com/workdistance,https://vk.com/jobs2,https://vk.com/v_freelance,https://vk.com/blogfreelance,https://vk.com/jobs_ru,https://vk.com/allfreelancers_su,https://vk.com/freelance.world,https://vk.com/na__zakaze,https://vk.com/apriumru,https://vk.com/f_r_e_e_lance,https://vk.com/live.work,https://vk.com/lancfree,https://vk.com/freelancehuntcom,https://vk.com/work_anywhere,https://vk.com/napishem,https://vk.com/freelance.work.jobs,https://vk.com/for_fl,https://vk.com/frilanceonline,https://vk.com/freelance_remotework,https://vk.com/club75124626,https://vk.com/ishysmm,https://vk.com/leaderator,https://vk.com/free_lanceru,https://vk.com/freelance.line,https://vk.com/club62340709,https://vk.com/web_designer_design,https://vk.com/busness.help,https://vk.com/homedistance,https://vk.com/direct_adwords_target,https://vk.com/zakaznadesign,https://vk.com/rueventjob,https://vk.com/club58487902,https://vk.com/ineedjob,https://vk.com/freelanceyukon_to,https://vk.com/flru_art,https://vk.com/tpverstak,https://vk.com/club70470221,https://vk.com/rabotafreelancer,https://vk.com/freelanceblog,https://vk.com/freebusy,https://vk.com/inflance,https://vk.com/cenistop,https://vk.com/weblake_ru,https://vk.com/hr.freelance,https://vk.com/freelance.vacancy,https://vk.com/freelancewave,https://vk.com/smm.vacancy,https://vk.com/kwork_kwork,https://vk.com/freelance_besplatno,https://vk.com/romaxbux,https://vk.com/kcf_team,https://vk.com/fri_lans,https://vk.com/yourfreelancework,https://vk.com/thework_online,https://vk.com/vedenie.group,https://vk.com/freelancefeed,https://vk.com/smm.freelance,https://vk.com/wayup_in,https://vk.com/freelance_i_udalennaya_rabota,https://vk.com/advertisingforfree,https://vk.com/freelancezakaz,https://vk.com/websites_seo,https://vk.com/public36637269,https://vk.com/club126557150,https://vk.com/ladyfreelance,https://vk.com/e_frilanser,https://vk.com/public171099190,https://vk.com/trebuetsya_copywriter,https://vk.com/freelancems,https://vk.com/smmforfriends,https://vk.com/flru_design,https://vk.com/freelance_brandpr,https://vk.com/jobs_design,https://vk.com/jobs_target,https://vk.com/freelancerjob24,https://vk.com/freelance4site,https://vk.com/frilansss,https://vk.com/freelance_fly,https://vk.com/freelance13,https://vk.com/freelancebizz,https://vk.com/freelancepublic2020,https://vk.com/freelance_miterev,https://vk.com/birjafreelance,https://vk.com/project_fl_ru,https://vk.com/freelancwork,https://vk.com/freelanca,https://vk.com/freelancers_stock,https://vk.com/ffrelancee,https://vk.com/public81271426,https://vk.com/profifreelancer,https://vk.com/programmist_services,https://vk.com/vissisru,https://vk.com/r_a_b_o_t__a,https://vk.com/freelance_birja,https://vk.com/ifreelancers, 
+https://vk.com/altera_invest,  
+https://vk.com/realbizsale,
+https://vk.com/prodat_biznes_moskva,   
+https://vk.com/mosbizbroker,
+ https://vk.com/prodat_biznes_moskva,
+https://vk.com/exsplusivrate
+https://vk.com/franshizyrf,
+https://vk.com/bizness_bz,
+https://vk.com/exsplusivrate,
+https://vk.com/bizness_bz,
+https://vk.com/startupbusines,
+https://vk.com/businessopt,
+https://vk.com/sovmestniy_business,
+https://vk.com/biznesfirma,
+https://vk.com/biznes_minsk_belarus,
+https://vk.com/programmer_minsk,
+https://vk.com/prodazha_biznesa_moskva,
+https://vk.com/delomoyo </Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>comunities_telemetr</Name>
+               <Description ru="Ссылки каналов telemetr.me (через запятую)" en="comunities_telemetr"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>telemetr.me</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value></Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>proxy_mob</Name>
+               <Description ru="Мобильный прокси для telemetr.me (socks5)" en="proxy_mob"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>telemetr.me</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value></Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>comunities_tgstat</Name>
+               <Description ru="Ссылки каналов tgstat.ru (через запятую)" en="comunities_tgstat"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>tgstat.ru</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>0</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>https://tgstat.ru/channel/AAAAAFWw7DNReUL5h2EG9w,https://tgstat.ru/channel/@vakansii5,https://tgstat.ru/channel/@Udalenka_m,https://tgstat.ru/channel/@Freelance_tut,https://tgstat.ru/channel/@starjobmsk,https://tgstat.ru/channel/@workzavr,https://tgstat.ru/channel/@workoo,https://tgstat.ru/channel/@worklis,https://tgstat.ru/channel/@flday,https://tgstat.ru/channel/@horsejob,https://tgstat.ru/channel/@freelancetaverna,https://tgstat.ru/channel/@remote_ru,https://tgstat.ru/channel/AAAAAFjYLbsTElwWWsjl-w,https://tgstat.ru/channel/@xCareers,https://tgstat.ru/channel/@jobsfl,https://tgstat.ru/channel/@workplaces,https://tgstat.ru/channel/@pravkiforyou,https://tgstat.ru/channel/@ucan_job,https://tgstat.ru/channel/@buhtajob,https://tgstat.ru/channel/@ufreelance,https://tgstat.ru/channel/@zapvork,https://tgstat.ru/channel/@freelancesmm,https://tgstat.ru/channel/AAAAAEv4-CoCXkus6PBODA,https://tgstat.ru/channel/AAAAAFgTlSkbumTUXqDhKg,https://tgstat.ru/channel/@workfreelancer,https://tgstat.ru/channel/@rueventjob,https://tgstat.ru/channel/AAAAAFEChhdYp1MAvJTUmA,https://tgstat.ru/channel/@GeoWakansi,https://tgstat.ru/channel/@motionhunter,https://tgstat.ru/channel/@hub_freelance,https://tgstat.ru/channel/@distantsiya,https://tgstat.ru/channel/AAAAAEq_uPjlOZ-FA2eKbA,https://tgstat.ru/channel/AAAAAFYjbJBhrnGG-hWQyQ,https://tgstat.ru/channel/@digitaltender,https://tgstat.ru/channel/@rabota_udalennaya,https://tgstat.ru/channel/AAAAAEzaXkW8i9PCaxAfYg,https://tgstat.ru/channel/AAAAAFZbilWRiygTQb54ng,https://tgstat.ru/channel/AAAAAFTF8b7NppwCNrJkcQ,https://tgstat.ru/channel/@freeworke,https://tgstat.ru/channel/@frilanceonline,https://tgstat.ru/channel/@rabota_freelancee,https://tgstat.ru/channel/@friwork1,https://tgstat.ru/channel/AAAAAEinx4YQX-3uxpPfPQ,https://tgstat.ru/channel/@jobmar,https://tgstat.ru/channel/@saltyfreelance,https://tgstat.ru/channel/@zona_f,https://tgstat.ru/channel/@nomadjobs,https://tgstat.ru/channel/AAAAAFf995XJ18fTaBJEVA,https://tgstat.ru/channel/@frlnrs,https://tgstat.ru/channel/@webfrl,https://tgstat.ru/channel/@freelancechoice,https://tgstat.ru/channel/@Na_Domy,https://tgstat.ru/channel/@freelancework11,https://tgstat.ru/channel/@freelanceworkhome,https://tgstat.ru/channel/@freelance247,https://tgstat.ru/channel/@hi_freelancer,https://tgstat.ru/channel/@freelance_rabota_a,https://tgstat.ru/channel/AAAAAFkekurOSbpVav2O1A,https://tgstat.ru/channel/@getFreeLance,https://tgstat.ru/channel/@freelancersJob,https://tgstat.ru/channel/AAAAAEsjHTJEbuXUZnAY0g,https://tgstat.ru/channel/@theyseeku,https://tgstat.ru/channel/AAAAAFKFzLknlH8NLlA6ow,https://tgstat.ru/channel/AAAAAFFxAK_sfRB-cwGBLg,https://tgstat.ru/channel/@normrabota,https://tgstat.ru/channel/AAAAAFKWxfHgbr4cpr0eXQ,https://tgstat.ru/channel/@work_inst,https://tgstat.ru/channel/AAAAAEweV0-554zPtsp-iA,https://tgstat.ru/channel/AAAAAFKK7O14DLHvE8FpuA,https://tgstat.ru/channel/@digital_rabota,https://tgstat.ru/channel/AAAAAFQzh6VbNlke29HgNQ,https://tgstat.ru/channel/@designer_go,https://tgstat.ru/channel/@promopoisk,https://uk.tgstat.com/channel/@leadsshop,https://tgstat.ru/channel/@hh_vacancy_side_job,https://tgstat.ru/channel/@vdhl_good,https://tgstat.ru/channel/@careerspace,https://tgstat.ru/channel/@marketing_jobs,https://tgstat.ru/channel/@ya_jobs,https://tgstat.ru/channel/@Remoteit,https://tgstat.ru/channel/@mediajobs_ru,https://uk.tgstat.com/channel/@RunAsHelicopter</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>comunities_telegram</Name>
+               <Description ru="Названия telegram каналов (через запятую)" en="comunities_telegram"/>
+               <SectionName ru="Сайты" en="Sites"/>
+               <VisibilityConditionValue>telegram.org</VisibilityConditionValue>
+               <VisibilityConditionVariable>Sites</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value>vakansii5,Udalenka_m,Freelance_tut,starjobmsk,workzavr,workoo,worklis,flday,horsejob,freelancetaverna,remote_ru,xCareers,jobsfl,workplaces,pravkiforyou,ucan_job,buhtajob,ufreelance,zapvork,freelancesmm,workfreelancer,rueventjob,GeoWakansi,motionhunter,hub_freelance,distantsiya,digitaltender,rabota_udalennaya,freeworke,frilanceonline,rabota_freelancee,friwork1,jobmar,saltyfreelance,zona_f,nomadjobs,frlnrs,webfrl,freelancechoice,Na_Domy,freelancework11,freelanceworkhome,freelance247,hi_freelancer,freelance_rabota_a,getFreeLance,freelancersJob,theyseeku,normrabota,work_inst,digital_rabota,designer_go,promopoisk,leadsshop,hh_vacancy_side_job,vdhl_good,careerspace,marketing_jobs,ya_jobs,Remoteit,mediajobs_ru,RunAsHelicopter , https://t.me/prodazha_biznesa,
+https://t.me/workmskmo</Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+     </ModelList>
+</BrowserAutomationStudioProject>
