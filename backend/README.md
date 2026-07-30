@@ -38,7 +38,16 @@ Python-бекенд: без браузера, поднимается в Docker �
   оригинале) закрыт в 2024 — оплата через админа (`app/payments.py`),
   интерфейс готов к подключению другого провайдера.
 - **Dev-сервер**: `/health`, `/api/sources`, `/api/parse/{source}`,
-  `POST /api/run-cycle`.
+  `POST /api/run-cycle`, `GET /api/stream?keywords=python,бот` — живой
+  NDJSON-поток заказов, отфильтрованных по ключевым словам (по одной строке
+  JSON на заказ, источники опрашиваются параллельно).
+- **Фронтенд** (`app/frontend/`) — статичная SPA без сборки и бэкенд-рендера,
+  архитектурно как приложение на Firebase Hosting: весь JS ходит прямо в
+  REST/NDJSON API браузером (`fetch` + `ReadableStream`), `appConfig` в
+  `app.js` играет роль `firebaseConfig`. Раздаётся тем же aiohttp-сервером
+  на `/` и `/assets/*`; чтобы задеплоить на реальный Firebase Hosting —
+  `firebase init hosting` с public-каталогом `app/frontend`, затем
+  `firebase deploy` (без каких-либо правок кода).
 
 ## Запуск
 
@@ -59,20 +68,42 @@ docker compose up -d --build
 curl localhost:8000/health
 ```
 
-### Локально (dev, с mock-источниками)
+### Локально (dev, с mock-источниками и mock-Telegram)
+
+`api.telegram.org` и реальные фриланс-сайты недоступны из некоторых сред
+разработки (egress-политика песочницы, например) — `dev_run.py` поднимает
+локальные заглушки для обоих, чтобы весь пайплайн (парсинг → фильтр по
+ключевым словам → доставка боту) проверялся по-настоящему через HTTP.
 
 ```bash
 cd backend
 python -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
-.venv/bin/python dev_run.py          # mock-источники на :9001, бекенд на :8000
+.venv/bin/python dev_run.py
+# mock-источники :9001, mock-Telegram :9002, бекенд :8000
+```
+
+```bash
+# парсинг одного источника
 curl "localhost:8000/api/parse/kwork?limit=2"
+
+# живой поток заказов по ключевым словам (NDJSON, по строке на заказ)
+curl "localhost:8000/api/stream?keywords=python"
+
+# имитируем реального пользователя, который пишет боту /start
+curl -X POST localhost:9002/debug/push -H 'content-type: application/json' \
+     -d '{"chat_id": 777, "text": "/start", "username": "demo"}'
+sleep 2   # бот успевает обработать через long-polling
+curl localhost:9002/debug/sent | python3 -m json.tool   # что бот реально ответил
+
+# фронтенд
+open http://localhost:8000/       # или curl -s localhost:8000/
 ```
 
 ### Тесты
 
 ```bash
 .venv/bin/python -m pytest tests/ --cov=app
-# 101 passed, покрытие 100% (statements + branches)
+# 116 passed, покрытие 100% (statements + branches)
 ```
 
 ## Структура
@@ -88,10 +119,12 @@ backend/
 │   ├── telegram.py       # сырой Bot API клиент
 │   ├── payments.py       # подписка (QIWI мёртв — начисление через админа)
 │   ├── fetcher.py        # HTTP с ретраями 2/4/8/16с
-│   ├── server.py         # dev/ops эндпоинты
-│   ├── mock_sources.py   # сервер фикстур для dev
+│   ├── server.py         # dev/ops эндпоинты + NDJSON-стрим + фронтенд
+│   ├── frontend/         # статичная SPA (index.html/app.js/style.css), Firebase-Hosting-style
+│   ├── mock_sources.py   # сервер фикстур источников для dev
+│   ├── mock_telegram.py  # заглушка Telegram Bot API для dev (реальный недоступен из песочницы)
 │   └── main.py           # входная точка
-├── tests/                # 101 тест, фикстуры реальных форматов лент
+├── tests/                # 116 тестов, фикстуры реальных форматов лент + live-интеграция
 ├── docker/build_base_image.sh   # базовый образ без registry
 ├── Dockerfile, docker-compose.yml
 └── .env.example

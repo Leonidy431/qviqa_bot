@@ -91,3 +91,21 @@ async def test_main_start_with_bot(tmp_path, unused_tcp_port):
     await asyncio.gather(*tasks, return_exceptions=True)
     await runner.cleanup()
     await runner.app["client_session"].close()
+
+
+async def test_main_start_with_custom_telegram_api_base(tmp_path, unused_tcp_port):
+    config = Config(
+        port=unused_tcp_port,
+        host="127.0.0.1",
+        db_path=str(tmp_path / "d.sqlite3"),
+        bot_token="123:abc",
+        poll_interval=9999,
+        telegram_api_base="http://127.0.0.1:1",  # unroutable; cancelled before use
+    )
+    runner, tasks = await start(config)
+    assert len(tasks) == 2
+    for task in tasks:
+        task.cancel()
+    await asyncio.gather(*tasks, return_exceptions=True)
+    await runner.cleanup()
+    await runner.app["client_session"].close()

@@ -24,7 +24,8 @@ async def start(config: Config) -> tuple[web.AppRunner, list[asyncio.Task]]:
         timeout=aiohttp.ClientTimeout(total=config.http_timeout)
     )
     db = Database(config.db_path)
-    api = TelegramAPI(config.bot_token, session) if config.bot_token else None
+    api_kwargs = {"base": config.telegram_api_base} if config.telegram_api_base else {}
+    api = TelegramAPI(config.bot_token, session, **api_kwargs) if config.bot_token else None
 
     app = build_app(config, db, session, api)
     app["client_session"] = session

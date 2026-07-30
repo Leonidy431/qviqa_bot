@@ -1,8 +1,11 @@
+import json
+
 import aiohttp
 import pytest
 
 from app.config import Config
 from app.mock_sources import ROUTES, build_mock_app
+from app.parsers import SOURCES
 from app.server import build_app
 
 
@@ -75,3 +78,60 @@ async def test_run_cycle_endpoint(client, db):
     assert resp.status == 200
     assert data["cycle"]["fl_ru"]["ok"] is True
     assert data["cycle"]["fl_ru"]["sent"] > 0
+
+
+async def _read_ndjson(resp):
+    text = (await resp.text()).strip()
+    return [json.loads(line) for line in text.split("\n") if line]
+
+
+async def test_stream_all_items(client):
+    resp = await client.get("/api/stream")
+    assert resp.status == 200
+    assert resp.headers["Content-Type"].startswith("application/x-ndjson")
+    items = await _read_ndjson(resp)
+    assert len(items) > 0
+    assert all(i["matched_keywords"] == ["*"] for i in items)
+
+
+async def test_stream_filters_by_keyword(client):
+    resp = await client.get("/api/stream?keywords=python")
+    items = await _read_ndjson(resp)
+    assert items
+    assert all(kw.lower() == "python" for i in items for kw in i["matched_keywords"])
+
+
+async def test_stream_no_match_is_empty(client):
+    resp = await client.get("/api/stream?keywords=совершенно_другое_слово")
+    assert await _read_ndjson(resp) == []
+
+
+async def test_stream_respects_limit(client):
+    resp = await client.get("/api/stream?limit=1")
+    assert len(await _read_ndjson(resp)) == 1
+
+
+async def test_stream_invalid_limit_means_unlimited(client):
+    resp = await client.get("/api/stream?limit=notanumber")
+    assert len(await _read_ndjson(resp)) > 1
+
+
+async def test_stream_skips_broken_sources(aiohttp_client, db):
+    config = Config(source_url_overrides={name: "http://127.0.0.1:1/x" for name in SOURCES})
+    session = aiohttp.ClientSession()
+    test_client = await aiohttp_client(build_app(config, db, session))
+    resp = await test_client.get("/api/stream")
+    assert (await resp.text()).strip() == ""
+    await session.close()
+
+
+async def test_frontend_index_served(client):
+    resp = await client.get("/")
+    assert resp.status == 200
+    assert "Qviqa" in await resp.text()
+
+
+async def test_frontend_assets_served(client):
+    resp = await client.get("/assets/app.js")
+    assert resp.status == 200
+    assert "appConfig" in await resp.text()

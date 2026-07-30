@@ -30,6 +30,8 @@ class Config:
     freelancehunt_token: str = ""
     telegram_channels: list[str] = field(default_factory=list)
     source_url_overrides: dict[str, str] = field(default_factory=dict)
+    telegram_api_base: str = ""
+    bot_poll_delay: float = 1.0
 
     @classmethod
     def from_env(cls, env: dict[str, str] | None = None) -> "Config":
@@ -52,4 +54,6 @@ class Config:
             freelancehunt_token=env.get("FREELANCEHUNT_TOKEN", ""),
             telegram_channels=_split_csv(env.get("TELEGRAM_CHANNELS", "")),
             source_url_overrides=overrides,
+            telegram_api_base=env.get("TELEGRAM_API_BASE", ""),
+            bot_poll_delay=float(env.get("BOT_POLL_DELAY", "1.0")),
         )

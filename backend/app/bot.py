@@ -3,6 +3,7 @@ add_words / add_del_site / get_user_info / change_status / add_balance)."""
 
 from __future__ import annotations
 
+import asyncio
 import logging
 
 from . import payments
@@ -209,6 +210,7 @@ class Bot:
     async def poll_forever(self) -> None:  # pragma: no cover - infinite loop wrapper
         while True:
             await self.poll_once()
+            await asyncio.sleep(self.config.bot_poll_delay)
 
     async def poll_once(self) -> None:
         try:
