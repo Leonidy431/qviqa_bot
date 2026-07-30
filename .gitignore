@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.coverage
+backend/docker/wheels/
+backend/data/
+data/
+*.sqlite3

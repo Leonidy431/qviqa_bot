@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>FL.ru: все проекты</title>
+    <link>https://www.fl.ru/</link>
+    <item>
+      <title>Разработать Telegram бота для магазина</title>
+      <link>https://www.fl.ru/projects/5211001/razrabotat-telegram-bota.html</link>
+      <description>&lt;p&gt;Нужен бот на Python с оплатой и админкой. Бюджет 30000 руб.&lt;/p&gt;</description>
+      <guid>https://www.fl.ru/projects/5211001/</guid>
+      <pubDate>Wed, 29 Jul 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Верстка лендинга</title>
+      <link>https://www.fl.ru/projects/5211002/verstka-landinga.html</link>
+      <description>Адаптивная верстка по макету Figma</description>
+      <guid>https://www.fl.ru/projects/5211002/</guid>
+      <pubDate>Wed, 29 Jul 2026 09:30:00 +0300</pubDate>
+    </item>
+  </channel>
+</rss>

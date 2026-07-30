@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Freelance.ru — новые проекты</title>
+    <link>https://freelance.ru/</link>
+    <item>
+      <title>Дизайн мобильного приложения</title>
+      <link>https://freelance.ru/project/design-app-987654</link>
+      <description>iOS + Android, 20 экранов, Figma</description>
+      <guid>https://freelance.ru/project/design-app-987654</guid>
+    </item>
+  </channel>
+</rss>
