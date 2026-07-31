@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Хабр Фриланс — все заказы</title>
+    <link>https://freelance.habr.com/tasks</link>
+    <item>
+      <title>Парсер данных на Python</title>
+      <link>https://freelance.habr.com/tasks/612345</link>
+      <description>Собрать данные с 5 сайтов, выгрузка в CSV. До 15000 руб.</description>
+      <guid isPermaLink="true">https://freelance.habr.com/tasks/612345</guid>
+    </item>
+  </channel>
+</rss>

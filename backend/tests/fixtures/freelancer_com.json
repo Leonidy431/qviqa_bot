@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "result": {
+    "projects": [
+      {
+        "id": 39001122,
+        "title": "Build a scraping bot in Python",
+        "seo_url": "python/Build-scraping-bot-Python",
+        "preview_description": "Need a bot that scrapes freelance job boards hourly",
+        "currency": {"code": "USD"},
+        "budget": {"minimum": 250, "maximum": 750}
+      },
+      {
+        "id": 39001123,
+        "title": "Fix WordPress theme",
+        "seo_url": "wordpress/Fix-WordPress-theme",
+        "preview_description": "",
+        "currency": {"code": "USD"},
+        "budget": {}
+      }
+    ]
+  }
+}

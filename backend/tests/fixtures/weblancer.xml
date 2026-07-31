@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Weblancer.net: проекты</title>
+    <link>https://www.weblancer.net/jobs/</link>
+    <item>
+      <title>Доработка сайта на Laravel (бюджет: 200 USD)</title>
+      <link>https://www.weblancer.net/jobs/dorabotka-sajta-1234567.html</link>
+      <description>Добавить личный кабинет и интеграцию с CRM</description>
+      <guid>https://www.weblancer.net/jobs/dorabotka-sajta-1234567.html</guid>
+    </item>
+  </channel>
+</rss>

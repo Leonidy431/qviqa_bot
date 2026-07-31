@@ -1,0 +1,29 @@
+# PEP 8 / style enforcement for backend/app + backend/tests.
+# Referenced by validation_protocol.md — every task must pass this before
+# moving to the next backlog item (.clauderc rule 89 / AUTONOMY_PROTOCOL #22).
+
+target-version = "py312"
+line-length = 100
+
+[lint]
+select = [
+    "E",   # pycodestyle errors (PEP 8)
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes (unused imports/vars, undefined names)
+    "I",   # isort (import ordering)
+    "B",   # flake8-bugbear (common bug patterns)
+    "UP",  # pyupgrade (modern Python idioms)
+    "C90", # mccabe cyclomatic complexity
+]
+ignore = [
+    "E501", # line length is handled by the formatter, not the linter
+]
+
+[lint.mccabe]
+max-complexity = 12
+
+[lint.isort]
+known-first-party = ["app"]
+
+[format]
+line-ending = "lf"

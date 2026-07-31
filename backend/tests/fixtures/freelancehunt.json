@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": 998877,
+      "type": "project",
+      "attributes": {
+        "name": "Интеграция платежного шлюза",
+        "description": "Подключить LiqPay к сайту на PHP",
+        "budget": {"amount": 5000, "currency": "UAH"}
+      },
+      "links": {"self": {"web": "https://freelancehunt.com/project/998877.html"}}
+    },
+    {
+      "id": 998878,
+      "type": "project",
+      "attributes": {
+        "name": "Логотип для кофейни",
+        "description": "3 варианта, исходники в AI",
+        "budget": null
+      },
+      "links": {}
+    }
+  ]
+}
