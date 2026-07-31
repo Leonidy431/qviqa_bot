@@ -8,8 +8,7 @@ from .base import Item, ParserError
 
 FREELANCEHUNT_URL = "https://api.freelancehunt.com/v2/projects"
 FREELANCER_COM_URL = (
-    "https://www.freelancer.com/api/projects/0.1/projects/active/"
-    "?limit=50&full_description=true"
+    "https://www.freelancer.com/api/projects/0.1/projects/active/?limit=50&full_description=true"
 )
 YOUDO_URL = "https://youdo.com/api/tasks/tasksList/?list=all&page=1"
 

@@ -30,15 +30,11 @@ def build_mock_app(fixtures_dir: Path = FIXTURES_DIR) -> web.Application:
         filename = ROUTES.get(name)
         if not filename:
             raise web.HTTPNotFound(text=f"no fixture for {name}")
-        return web.Response(
-            text=(request.app["fixtures"] / filename).read_text(encoding="utf-8")
-        )
+        return web.Response(text=(request.app["fixtures"] / filename).read_text(encoding="utf-8"))
 
     async def serve_telegram(request: web.Request) -> web.Response:
         return web.Response(
-            text=(request.app["fixtures"] / "telegram_channel.html").read_text(
-                encoding="utf-8"
-            )
+            text=(request.app["fixtures"] / "telegram_channel.html").read_text(encoding="utf-8")
         )
 
     app.add_routes(

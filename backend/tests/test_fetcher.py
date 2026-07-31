@@ -59,9 +59,7 @@ async def test_fetch_retries_then_succeeds(aiohttp_server):
         delays.append(seconds)
 
     async with aiohttp.ClientSession() as session:
-        body = await fetcher.fetch(
-            session, str(server.make_url("/")), retries=3, _sleep=fake_sleep
-        )
+        body = await fetcher.fetch(session, str(server.make_url("/")), retries=3, _sleep=fake_sleep)
     assert body == "ok"
     assert delays == [2, 4]
 
@@ -77,9 +75,7 @@ async def test_fetch_retries_exhausted(aiohttp_server):
 
     async with aiohttp.ClientSession() as session:
         with pytest.raises(fetcher.FetchError):
-            await fetcher.fetch(
-                session, str(server.make_url("/")), retries=5, _sleep=fake_sleep
-            )
+            await fetcher.fetch(session, str(server.make_url("/")), retries=5, _sleep=fake_sleep)
 
 
 async def test_fetch_connection_error():

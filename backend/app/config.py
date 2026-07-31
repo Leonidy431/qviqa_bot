@@ -34,7 +34,7 @@ class Config:
     bot_poll_delay: float = 1.0
 
     @classmethod
-    def from_env(cls, env: dict[str, str] | None = None) -> "Config":
+    def from_env(cls, env: dict[str, str] | None = None) -> Config:
         env = dict(os.environ if env is None else env)
         overrides: dict[str, str] = {}
         for key, value in env.items():

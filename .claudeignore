@@ -1,0 +1,61 @@
+# .claudeignore — files an autonomous agent must NOT read into context.
+# AUTONOMY_PROTOCOL.md #2/#16: an agent that reads venvs, caches, lockfile
+# noise, or compiled binaries burns its context window on zero signal.
+# This is about what Claude reads, not what git tracks — some entries
+# below overlap .gitignore, some don't (tracked-but-noisy files still
+# belong here).
+
+# --- Python runtime junk ---
+.venv/
+venv/
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# --- Coverage / test artifacts ---
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# --- Local data / secrets (never read, never quote) ---
+.env
+.env.*
+!.env.example
+*.sqlite3
+*.sqlite3-journal
+data/
+backend/data/
+
+# --- Docker build junk ---
+backend/docker/wheels/
+*.tar
+*.whl
+
+# --- Original BAS exports: huge, binary/generated, contain leaked
+# secrets (see SECRETS_REVOCATION.md) — never load into context ---
+FreelanceAgregatorRU.1.zip
+messages.html
+messages2.html
+messages3.html
+messages4.html
+настройки 15.11.22.xml
+настройки 15.11.22.xml.default.xml
+freelancemonitor_БОТ_59_Леонид_RU.xml
+
+# --- Generic monorepo noise (kept for when this repo grows) ---
+node_modules/
+dist/
+build/
+*.log
+*.min.js
+*.min.css
+.DS_Store
+
+# --- Generated, regenerate-don't-read-diff-of ---
+# (context_map.json IS meant to be read — it's the dependency index, not
+# noise. Do not add it here.)

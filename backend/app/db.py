@@ -64,9 +64,7 @@ class Database:
         return cur.rowcount == 1
 
     def get_user(self, user_id: int):
-        return self.conn.execute(
-            "SELECT * FROM users WHERE user_id = ?", (user_id,)
-        ).fetchone()
+        return self.conn.execute("SELECT * FROM users WHERE user_id = ?", (user_id,)).fetchone()
 
     def delete_user(self, user_id: int) -> None:
         for table in ("users", "keywords", "user_sites", "sent"):
@@ -74,9 +72,7 @@ class Database:
         self.conn.commit()
 
     def set_active(self, user_id: int, active: bool) -> None:
-        self.conn.execute(
-            "UPDATE users SET active = ? WHERE user_id = ?", (int(active), user_id)
-        )
+        self.conn.execute("UPDATE users SET active = ? WHERE user_id = ?", (int(active), user_id))
         self.conn.commit()
 
     def grant_days(self, user_id: int, days: int) -> int:

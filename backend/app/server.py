@@ -38,9 +38,7 @@ def build_app(config, db, session, api=None) -> web.Application:
 
 async def health(request: web.Request) -> web.Response:
     db = request.app["db"]
-    return web.json_response(
-        {"status": "ok", "version": __version__, **db.stats()}
-    )
+    return web.json_response({"status": "ok", "version": __version__, **db.stats()})
 
 
 async def sources_handler(request: web.Request) -> web.Response:
@@ -119,9 +117,7 @@ async def stream_handler(request: web.Request) -> web.StreamResponse:
     config = request.app["config"]
     session = request.app["session"]
     sent = 0
-    tasks = [
-        asyncio.create_task(_collect_for_stream(config, session, name)) for name in SOURCES
-    ]
+    tasks = [asyncio.create_task(_collect_for_stream(config, session, name)) for name in SOURCES]
     for task in asyncio.as_completed(tasks):
         _name, items = await task
         for item in items:

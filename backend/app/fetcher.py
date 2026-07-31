@@ -38,7 +38,7 @@ async def fetch(
                 if resp.status >= 400:
                     raise FetchError(f"{url}: HTTP {resp.status}")
                 return await resp.text()
-        except (aiohttp.ClientError, asyncio.TimeoutError, FetchError) as exc:
+        except (TimeoutError, aiohttp.ClientError, FetchError) as exc:
             last_error = exc
             if attempt < retries:
                 delay = RETRY_DELAYS[min(attempt, len(RETRY_DELAYS) - 1)]

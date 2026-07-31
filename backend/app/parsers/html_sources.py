@@ -20,7 +20,7 @@ TELEGRAM_BASE = "https://t.me/s/"
 _KWORK_STATE_RE = re.compile(r"window\.stateData\s*=\s*(\{.*?\});?\s*</script>", re.S)
 _TG_MESSAGE_RE = re.compile(
     r'data-post="(?P<post>[^"]+)".*?'
-    r'tgme_widget_message_text[^>]*>(?P<html>.*?)</div>',
+    r"tgme_widget_message_text[^>]*>(?P<html>.*?)</div>",
     re.S,
 )
 
@@ -33,9 +33,7 @@ def parse_kwork(payload: str) -> list[Item]:
         state = json.loads(match.group(1))
     except ValueError as exc:
         raise ParserError("kwork: bad stateData JSON") from exc
-    rows = (
-        (state.get("wantsListData") or {}).get("pagination") or {}
-    ).get("data") or []
+    rows = ((state.get("wantsListData") or {}).get("pagination") or {}).get("data") or []
     items = []
     for row in rows:
         price = row.get("priceLimit") or ""

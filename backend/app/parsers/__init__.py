@@ -7,8 +7,8 @@ documented in DEAD_SOURCES with the reason and the replacement.
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Callable
 
 from . import api_sources, html_sources, rss_sources
 from .base import Item, ParserError  # noqa: F401  (re-exported)

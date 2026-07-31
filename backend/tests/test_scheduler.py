@@ -1,6 +1,5 @@
 import aiohttp
 import pytest
-from aiohttp import web
 
 from app import scheduler
 from app.config import Config
@@ -32,10 +31,7 @@ def test_source_url_resolution():
     assert scheduler.source_url(config, "fl_ru") == "http://mock/fl"
     assert scheduler.source_url(config, "kwork") == SOURCES["kwork"].url
     config2 = Config(source_url_overrides={"telegram": "http://mock/tg/s/"})
-    assert (
-        scheduler.source_url(config2, "telegram", "chan")
-        == "http://mock/tg/s/chan"
-    )
+    assert scheduler.source_url(config2, "telegram", "chan") == "http://mock/tg/s/chan"
 
 
 async def test_collect_every_source(mock_env):

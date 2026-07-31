@@ -33,9 +33,7 @@ class TelegramAPI:
             raise TelegramError(f"{method}: {description}")
         return data["result"]
 
-    async def send_message(
-        self, chat_id: int, text: str, reply_markup: dict | None = None
-    ) -> dict:
+    async def send_message(self, chat_id: int, text: str, reply_markup: dict | None = None) -> dict:
         return await self.request(
             "sendMessage",
             chat_id=chat_id,
@@ -47,7 +45,9 @@ class TelegramAPI:
 
     async def get_updates(self, timeout: int = 30) -> list[dict]:
         updates = await self.request(
-            "getUpdates", offset=self._offset, timeout=timeout,
+            "getUpdates",
+            offset=self._offset,
+            timeout=timeout,
             allowed_updates=["message"],
         )
         if updates:

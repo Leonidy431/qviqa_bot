@@ -26,9 +26,7 @@ def source_url(config: Config, name: str, channel: str | None = None) -> str:
     return base
 
 
-async def collect_source(
-    config: Config, session: aiohttp.ClientSession, name: str
-) -> list[Item]:
+async def collect_source(config: Config, session: aiohttp.ClientSession, name: str) -> list[Item]:
     """Fetch and parse one source; telegram fans out over configured channels."""
     source = SOURCES[name]
     headers = {}

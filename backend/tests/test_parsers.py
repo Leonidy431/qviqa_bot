@@ -104,9 +104,7 @@ def test_api_parsers_reject_non_object_json(parse):
         parse("[1, 2, 3]")
 
 
-@pytest.mark.parametrize(
-    "parse", [parse_freelancehunt, parse_freelancer_com, parse_youdo]
-)
+@pytest.mark.parametrize("parse", [parse_freelancehunt, parse_freelancer_com, parse_youdo])
 def test_api_parsers_tolerate_empty_payload(parse):
     assert parse("{}") == []
 
@@ -126,7 +124,7 @@ def test_parse_kwork_missing_state():
 
 def test_parse_kwork_bad_json():
     with pytest.raises(ParserError):
-        parse_kwork('<script>window.stateData = {broken};</script>')
+        parse_kwork("<script>window.stateData = {broken};</script>")
 
 
 def test_parse_telegram_channel():

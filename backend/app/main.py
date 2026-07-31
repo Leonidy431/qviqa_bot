@@ -20,9 +20,7 @@ log = logging.getLogger(__name__)
 
 
 async def start(config: Config) -> tuple[web.AppRunner, list[asyncio.Task]]:
-    session = aiohttp.ClientSession(
-        timeout=aiohttp.ClientTimeout(total=config.http_timeout)
-    )
+    session = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=config.http_timeout))
     db = Database(config.db_path)
     api_kwargs = {"base": config.telegram_api_base} if config.telegram_api_base else {}
     api = TelegramAPI(config.bot_token, session, **api_kwargs) if config.bot_token else None
@@ -39,9 +37,7 @@ async def start(config: Config) -> tuple[web.AppRunner, list[asyncio.Task]]:
     if api is not None:
         bot = Bot(api, db, config)
         tasks.append(asyncio.create_task(bot.poll_forever()))
-        tasks.append(
-            asyncio.create_task(scheduler.loop_forever(config, session, db, api))
-        )
+        tasks.append(asyncio.create_task(scheduler.loop_forever(config, session, db, api)))
         log.info("bot polling + scheduler started")
     else:
         log.warning("BOT_TOKEN not set — running dev server only")
